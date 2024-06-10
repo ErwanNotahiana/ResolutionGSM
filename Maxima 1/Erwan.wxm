@@ -1,0 +1,261 @@
+/* [wxMaxima batch file version 1] [ DO NOT EDIT BY HAND! ]*/
+/* [ Created with wxMaxima version 20.12.1 ] */
+/* [wxMaxima: title   start ]
+Test Maxima
+   [wxMaxima: title   end   ] */
+
+
+/* [wxMaxima: comment start ]
+Mardi 9 août 2022
+
+RAMANGASON Notahiana Erwan
+L3 - MISA 
+erwan.ramangason@gmail.com
++261 34 85 670 14
+
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: section start ]
+Exercice 1
+   [wxMaxima: section end   ] */
+
+
+/* [wxMaxima: comment start ]
+Soit les matrices:
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+
+
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: subsect start ]
+Définir, en Maxima, la matrice A
+   [wxMaxima: subsect end   ] */
+
+
+/* [wxMaxima: input   start ] */
+A:matrix([1,1,1,1],[1,1,-1,-1],[1,-1,1,-1],[1,-1,-1,-1]);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: subsect start ]
+Calculer, avec Maxima, les valeurs propres de A
+Quels sont leur ordre de multiplicité?
+   [wxMaxima: subsect end   ] */
+
+
+/* [wxMaxima: comment start ]
+Pour obtenir les valeurs propres de A, on a une fonction qui est eigenvalues. Elle nous donne chaque valeur propre de la matrice ainsi que leur ordre de multiplicité respectif.
+Pour appeler cette fonction, il faudra tout d'abord importer la bibliothèque "eigen"
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+load(eigen)$
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+eigenvalues(A);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+Comme nous pouvons le constater, nous avons les valeurs propres ainsi que leur ordre de multiplicité:
+            - λ1 = -√3 -1   avec ordre de multiplicité      1
+            - λ2 = √3 -1    ----------------------------------      1  
+            - λ3 = 2          ----------------------------------      2
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: subsect start ]
+Calculer, avec Maxima, le 4e vecteur propre de A
+   [wxMaxima: subsect end   ] */
+
+
+/* [wxMaxima: comment start ]
+A part la fonction eigenvalues, une autre, eigenvectors nous donne à la fois (respectivement) les valeurs propres, leur ordre de multiplicité ainsi que
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+eigenvectors(A);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+Ainsi, ici, le 4e vecteur propre est v:[ 0  1  -1  0 ]
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: subsect start ]
+Construire, avec Maxima, la matrice de passage P permettant de diagonaliser A
+   [wxMaxima: subsect end   ] */
+
+
+/* [wxMaxima: input   start ] */
+P:matrix([1,1,1,0],[-1,-1,0,1],[-1,-1,1,-1],[-sqrt(3),sqrt(3),0,0]);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: subsect start ]
+Calculer B, la factorisation de Gauss de P
+   [wxMaxima: subsect end   ] */
+
+
+/* [wxMaxima: comment start ]
+Pour calculer B, on se sert de 2 fonctions lu_factor et get_lu_factors
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+y:lu_factor(P);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+B:get_lu_factors(y);
+/* [wxMaxima: input   end   ] */
+/* [wxMaxima: question  start ] */
+(dbm:1)
+/* [wxMaxima: question  end   ] */
+/* [wxMaxima: answer  start ] */
+:quit;
+/* [wxMaxima: answer  end   ] */
+
+
+/* [wxMaxima: subsect start ]
+Définir, en Maxima, la matrice identité I4 de dimension 4
+   [wxMaxima: subsect end   ] */
+
+
+/* [wxMaxima: input   start ] */
+I4:ident(4);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: subsect start ]
+En fait, calculer P1; lu_backsub (B, I4); revient à appliquer lu_backsub successivement à chaque vecteur colonne de I4
+   [wxMaxima: subsect end   ] */
+
+
+/* [wxMaxima: input   start ] */
+
+P1:lu_backsub(B, );
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: subsect start ]
+Terminer la diagonalisation de A, en simplifiant correctement le résultat
+   [wxMaxima: subsect end   ] */
+
+
+/* [wxMaxima: section start ]
+Exercice 2
+   [wxMaxima: section end   ] */
+
+
+/* [wxMaxima: comment start ]
+Soit la fonction:
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+f(x):= 5*x*(sin(x))² -3;
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: subsect start ]
+Tracer une représentation graphique de f, en choisissant soigneusement les plages de valeur de x et de y
+   [wxMaxima: subsect end   ] */
+
+
+/* [wxMaxima: comment start ]
+En faisant une étude de fonction (observer la courbe), on remarque que la fonction sinusoïdale n'ateint des 0 Que pour x>0
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+wxplot2d(f(x), [x,0,10],[y,-5,10]);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: subsect start ]
+Rappeler le principe de la méthode de Newton pour calculer une solution approchée de f(x)=0
+   [wxMaxima: subsect end   ] */
+
+
+/* [wxMaxima: comment start ]
+Le principe de Newton se base sur les tangentes de la courbe. En effet, on cherche le point d'annulation de la courbe. 
+Pour se faire on va commencer par choisir un x pour laquelle la courbe est assez proche de 0. On trace ensuite la tangente de la courbe en ce point puis
+On cherche l'intersection de la tangente avec l'axe des x et on cherche la tangente de la courbe en ce point. On réitère ce processus jusqu'à obtention de l'aproximation.
+Attention, le choix du 1er terme est primordial pour que l'on aie une suite qui converge vers la solution.
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: subsect start ]
+Expliquer, comment choisir correctement une approximation initiale pour la méthode de Newton
+   [wxMaxima: subsect end   ] */
+
+
+/* [wxMaxima: comment start ]
+Pour éviter que notre suite ne diverge, il faut que la dérivée première et seconde ne soient pas nul.
+Et selon le sens de variation de la courbe au voisinage du zéro
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+plot2d(f(x), [x,5.8,7],[y,-2,2]);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: subsect start ]
+Calculer, par la méthode de Newton, la 4e solution (en comptant de gauche à droite) de f(x)=0 à10⁻⁶ près
+   [wxMaxima: subsect end   ] */
+
+
+/* [wxMaxima: comment start ]
+Comme nous sommes sur Maxima, on a déja une fonction qui permet de calculer, par la méthode de Newton une approximation de la racine. Commençons par importer la bibloitheque newton 1.
+
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+load(newton1)$
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+debugmode(true);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: input   start ] */
+kill(x);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+Ensuite, nous choisirons 5.9 comme absisse initiale
+   [wxMaxima: comment end   ] */
+
+
+/* [wxMaxima: input   start ] */
+newton((f(x)), x, 5.9, 1E-8);
+/* [wxMaxima: input   end   ] */
+
+
+/* [wxMaxima: comment start ]
+Ainsi, approximativement, on a  
+
+         f(x)=0 <=> x= 5.960327 à 10⁻⁶ près 
+   [wxMaxima: comment end   ] */
+
+
+
+/* Old versions of Maxima abort on loading files that end in a comment. */
+"Created with wxMaxima 20.12.1"$

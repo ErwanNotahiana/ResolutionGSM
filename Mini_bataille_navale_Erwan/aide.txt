@@ -1,0 +1,6 @@
+Comment jouer?
+
+Les sous marins sont la, dissimulé sous la mer. Vous ne disposez que de 50 balles pour 10 sous-marins a detecter.
+Rentrez les coordonnees de l'emplacement ou delivrer le paquet. Mais attention, souvenez vous des endroits ou vous avez loupé.
+Quand vous faites mouches, le sous-marin explosera!
+A vous de jouer

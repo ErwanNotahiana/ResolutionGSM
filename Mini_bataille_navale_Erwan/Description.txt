@@ -1,0 +1,27 @@
+﻿RAMANGASON Notahiana Erwan
+L3 – MISA 
+erwan.ramangason@gmail.com
++261 34 85 670 14
+
+
+
+
+
+
+Projet de fin de semestre: Mini-bataille navale
+
+Pour mon projet pour la fin de ce semestre, je me suis inspiré du jeu de société “Bataille navale”
+Son principe est assez simple: sur un plateau de jeu (une mer en quelque sorte) sont dissimulé des bateau (que l’on ne voit pas). L’objectif et de tous les trouver et les detruire. Au début du programme, il y a un petit synopsis ainsi que d’un petit guide pour jouer.
+
+Comme il s’agit d’un jeu, il diverti l’utilisateur, et il n’a pas de cible en particulier car la majorité peuvent y jouer. 
+Son objectif a surtout été de m’exercer à la programmation en C++. En effet il ne s’agit que d’un programme assez simple mais qui m’aidera à améliorer ma facon de coder comme par exemple dans la saisie sécurisé par l’utilisateur.
+Faire ce programme m’a en plus appris à : 
+	- génerer des nombres aléatoires à l’aide de la bibliotheque ctime, grace a la fonction rand() et srand()
+(ref : Internet)
+	- saisir de facon sécurisé avec cin et des fonctions qui l’accompagnent :
+*cin>>variable : qui renvoie une booleen 
+*cin.clear() : remet cin dans un etat fonctionnel
+*cin.ignore(nombre, caractere) : permet d’ignorer un nombre défini de caractères ou jusqu’à un caractère précis (vide les caracteres modifies)
+(ref : La Programmation en C moderne)
+
+
